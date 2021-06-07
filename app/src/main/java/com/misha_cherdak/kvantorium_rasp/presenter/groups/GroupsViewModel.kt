@@ -17,6 +17,7 @@ class GroupsViewModel(
 ) : AndroidViewModel(application) {
 
     private val groupsDao by lazy { ScheduleDatabase.gatDatabase(application).scheduleDao() }
+    private var groupsData = emptyList<Group>()
 
     private val _groups = MutableLiveData<List<Group>>()
     val groups: LiveData<List<Group>> get() = _groups
@@ -26,13 +27,20 @@ class GroupsViewModel(
 
     init {
         viewModelScope.launch {
-            val data = withContext(Dispatchers.IO) { groupsDao.getAllGroups() }
-            _groups.value = data
+            groupsData = withContext(Dispatchers.IO) { groupsDao.getAllGroups() }
+            _groups.value = groupsData
         }
     }
 
     fun onGroupClick(group: Group) {
         _eventOpenGroupSchedule.postValue(group.id_gryp)
+    }
+
+    // Поиск
+    fun onQueryTextChange(newText: String?) {
+        _groups.value = groupsData.filter {
+            it.name_gryp.contains(newText.orEmpty(), ignoreCase = true)
+        }
     }
 
 }
