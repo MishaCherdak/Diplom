@@ -9,7 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
+import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import com.misha_cherdak.kvantorium_rasp.databinding.FragmentScheduleBinding
+import com.misha_cherdak.kvantorium_rasp.presenter.schedule.items.scheduleAdapterItemDelegate
 
 const val ARG_VIEW_TYPE = "presenter.schedule.ScheduleFragmentKt.ARG_VIEW_TYPE"
 
@@ -17,6 +20,10 @@ class ScheduleFragment : Fragment() {
 
     private lateinit var _binding: FragmentScheduleBinding
     private val binding: FragmentScheduleBinding get() = _binding
+
+    private val scheduleAdapter = ListDelegationAdapter(
+        scheduleAdapterItemDelegate()
+    )
 
     private val viewModel: ScheduleViewModel by viewModels {
         ScheduleViewModelFactory(
@@ -36,8 +43,11 @@ class ScheduleFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.schedule.observe(viewLifecycleOwner) {
+        binding.rvSchedule.adapter = scheduleAdapter
 
+        viewModel.schedule.observe(viewLifecycleOwner) {
+            scheduleAdapter.items = it
+            scheduleAdapter.notifyDataSetChanged()
         }
     }
 
