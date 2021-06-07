@@ -8,7 +8,7 @@ import com.misha_cherdak.kvantorium_rasp.data.database.entity.GroupSchedule
 import com.misha_cherdak.kvantorium_rasp.data.database.entity.relations.FullScheduleInfo
 
 @Dao
-interface RaspDao {
+interface ScheduleDao {
 
     @Transaction
     @Query("SELECT * FROM rasp ORDER BY id_rasp ASC")
