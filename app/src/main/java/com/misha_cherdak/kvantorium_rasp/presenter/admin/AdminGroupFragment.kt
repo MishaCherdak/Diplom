@@ -6,12 +6,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.misha_cherdak.kvantorium_rasp.R
+import com.misha_cherdak.kvantorium_rasp.databinding.FragmentAdminGroupBinding
 
 class AdminGroupFragment : Fragment() {
 
+    private lateinit var _binding: FragmentAdminGroupBinding
+    private val binding: FragmentAdminGroupBinding get() = _binding
+
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_admin_group, container, false)
+    ): View {
+        _binding = FragmentAdminGroupBinding.inflate(inflater, container, false)
+        return _binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+    }
 
 }

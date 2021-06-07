@@ -3,6 +3,7 @@ package com.misha_cherdak.kvantorium_rasp.data.database.dao
 import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Transaction
+import com.misha_cherdak.kvantorium_rasp.data.database.entity.Admin
 import com.misha_cherdak.kvantorium_rasp.data.database.entity.Group
 import com.misha_cherdak.kvantorium_rasp.data.database.entity.Prep
 import com.misha_cherdak.kvantorium_rasp.data.database.entity.relations.FullScheduleInfo
@@ -17,8 +18,8 @@ interface ScheduleDao {
     @Transaction
     @Query(
         """
-        SELECT * FROM rasp 
-        JOIN rasp_for_gryp ON id_forgein_rasp = id_rasp
+        SELECT * FROM rasp_for_gryp 
+        JOIN rasp ON id_forgein_rasp = id_rasp
         WHERE id_forgein_gryp = :groupId
         ORDER BY id_rasp_for_gryp ASC
         """
@@ -40,5 +41,8 @@ interface ScheduleDao {
 
     @Query("SELECT * FROM prep ORDER BY id_prep ASC")
     suspend fun getAllTeachers(): List<Prep>
+
+    @Query("SELECT * FROM admin ORDER BY id_admin ASC")
+    suspend fun getAllAdmins(): List<Admin>
 
 }
