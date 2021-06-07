@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.misha_cherdak.kvantorium_rasp.HomeFragment"
+        android:label="Главная"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_stud_group_Fragment"
+            app:destination="@id/stud_group_Fragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_prepFragment"
+            app:destination="@id/prepFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_autorizeFragment"
+            app:destination="@id/autorizeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/stud_group_Fragment"
+        android:name="com.misha_cherdak.kvantorium_rasp.stud_group_Fragment"
+        android:label="Группы учеников"
+        tools:layout="@layout/fragment_stud_group_" >
+        <action
+            android:id="@+id/action_stud_group_Fragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/prepFragment"
+        android:name="com.misha_cherdak.kvantorium_rasp.prepFragment"
+        android:label="Преподаватели"
+        tools:layout="@layout/fragment_prep" >
+        <action
+            android:id="@+id/action_prepFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/autorizeFragment"
+        android:name="com.misha_cherdak.kvantorium_rasp.autorizeFragment"
+        android:label="Авторизация"
+        tools:layout="@layout/fragment_autorize" >
+        <action
+            android:id="@+id/action_autorizeFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_autorizeFragment_to_admin_groupFragment"
+            app:destination="@id/admin_groupFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/admin_groupFragment"
+        android:name="com.misha_cherdak.kvantorium_rasp.admin_groupFragment"
+        android:label="Группы студентов (админ)"
+        tools:layout="@layout/fragment_admin_group" >
+        <action
+            android:id="@+id/action_admin_groupFragment_to_autorizeFragment"
+            app:destination="@id/autorizeFragment" />
+    </fragment>
+</navigation>
