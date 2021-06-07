@@ -1,14 +1,14 @@
-package com.misha_cherdak.kvantorium_rasp.data.Entity.Relations
+package com.misha_cherdak.kvantorium_rasp.data.database.entity.relations
 
 import androidx.room.Embedded
 import androidx.room.Relation
-import com.misha_cherdak.kvantorium_rasp.data.Entity.Audit
-import com.misha_cherdak.kvantorium_rasp.data.Entity.Day
-import com.misha_cherdak.kvantorium_rasp.data.Entity.Predmet
-import com.misha_cherdak.kvantorium_rasp.data.Entity.Prep
+import com.misha_cherdak.kvantorium_rasp.data.database.entity.Audit
+import com.misha_cherdak.kvantorium_rasp.data.database.entity.Day
+import com.misha_cherdak.kvantorium_rasp.data.database.entity.Predmet
+import com.misha_cherdak.kvantorium_rasp.data.database.entity.Prep
 import com.misha_cherdak.kvantorium_rasp.data.Rasp
 
-data class FullRaspInfo (
+data class FullScheduleInfo (
 
     @Embedded val rasp: Rasp,
 

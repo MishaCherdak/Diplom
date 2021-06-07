@@ -2,18 +2,10 @@ package com.misha_cherdak.kvantorium_rasp.data
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import com.misha_cherdak.kvantorium_rasp.data.Entity.Gryp
+import com.misha_cherdak.kvantorium_rasp.data.database.ScheduleDatabase
 
-class RaspViewModel(application: Application): AndroidViewModel(application) {
+class RaspViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val readAllGryp: LiveData<List<Gryp>>
-    private val repository: RaspRepository
-
-    init {
-        val raspDao = RaspDatabase.gatDatabase(application).raspDao()
-        repository = RaspRepository(raspDao)
-        readAllGryp = repository.readAllGryp
-    }
+    private val scheduleDao by lazy { ScheduleDatabase.gatDatabase(application).scheduleDao() }
 
 }

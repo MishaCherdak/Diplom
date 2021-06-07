@@ -1,20 +1,20 @@
-package com.misha_cherdak.kvantorium_rasp.data.Entity.Relations
+package com.misha_cherdak.kvantorium_rasp.data.database.entity.relations
 
 import androidx.room.Embedded
 import androidx.room.Relation
-import com.misha_cherdak.kvantorium_rasp.data.Entity.Gryp
-import com.misha_cherdak.kvantorium_rasp.data.Entity.Rasp_for_gryp
+import com.misha_cherdak.kvantorium_rasp.data.database.entity.Group
+import com.misha_cherdak.kvantorium_rasp.data.database.entity.GroupSchedule
 import com.misha_cherdak.kvantorium_rasp.data.Rasp
 
 
 data class GrypaInfo (
-    @Embedded val raspForGryp: Rasp_for_gryp,
+    @Embedded val raspForGryp: GroupSchedule,
 
     @Relation(
         parentColumn = "id_forgein_gryp",
         entityColumn = "id_gryp"
     )
-    val gryp: Gryp,
+    val group: Group,
 
     @Relation(
         parentColumn = "id_forgein_rasp",

@@ -1,10 +1,11 @@
-package com.misha_cherdak.kvantorium_rasp
+package com.misha_cherdak.kvantorium_rasp.presenter
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.misha_cherdak.kvantorium_rasp.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -12,7 +13,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // Заголовок шапки и стрелка вернуться
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView2) as NavHostFragment
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.fragmentContainerView2) as NavHostFragment
         val navController = navHostFragment.navController
 
         setupActionBarWithNavController(navController)
@@ -20,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     // Работа стрелки вернуться
     override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.fragmentContainerView2   )
+        val navController = findNavController(R.id.fragmentContainerView2)
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
 

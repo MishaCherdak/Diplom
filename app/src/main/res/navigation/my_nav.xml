@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.misha_cherdak.kvantorium_rasp.HomeFragment"
+        android:name="com.misha_cherdak.kvantorium_rasp.presenter.home.HomeFragment"
         android:label="Главная"
         tools:layout="@layout/fragment_home" >
         <action
@@ -22,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/stud_group_Fragment"
-        android:name="com.misha_cherdak.kvantorium_rasp.stud_group_Fragment"
+        android:name="com.misha_cherdak.kvantorium_rasp.presenter.groups.GroupsFragment"
         android:label="Группы учеников"
         tools:layout="@layout/fragment_stud_group_" >
         <action
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/prepFragment"
-        android:name="com.misha_cherdak.kvantorium_rasp.prepFragment"
+        android:name="com.misha_cherdak.kvantorium_rasp.presenter.teacher.TeacherFragment"
         android:label="Преподаватели"
         tools:layout="@layout/fragment_prep" >
         <action
@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/autorizeFragment"
-        android:name="com.misha_cherdak.kvantorium_rasp.autorizeFragment"
+        android:name="com.misha_cherdak.kvantorium_rasp.presenter.auth.AuthorizationFragment"
         android:label="Авторизация"
         tools:layout="@layout/fragment_autorize" >
         <action
@@ -52,7 +52,7 @@
     </fragment>
     <fragment
         android:id="@+id/admin_groupFragment"
-        android:name="com.misha_cherdak.kvantorium_rasp.admin_groupFragment"
+        android:name="com.misha_cherdak.kvantorium_rasp.presenter.admin.AdminGroupFragment"
         android:label="Группы студентов (админ)"
         tools:layout="@layout/fragment_admin_group" >
         <action
