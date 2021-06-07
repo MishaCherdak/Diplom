@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".presenter.teacher.TeachersFragment">
+    android:layout_height="wrap_content"
+    android:background="?android:selectableItemBackground">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvTeachers"
+    <TextView
+        android:id="@+id/tvTeacherFIO"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:padding="16dp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/item_teacher" />
-
+        tools:text="Some teachers fio" />
 </androidx.constraintlayout.widget.ConstraintLayout>

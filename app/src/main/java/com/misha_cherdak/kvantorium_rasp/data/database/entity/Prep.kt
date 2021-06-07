@@ -10,3 +10,5 @@ data class Prep(
     val name_prep: String,
     val secname_prep: String
 )
+
+val Prep.fullName: String get() = "$surname_prep $name_prep $secname_prep"

@@ -34,12 +34,15 @@
     </fragment>
     <fragment
         android:id="@+id/prepFragment"
-        android:name="com.misha_cherdak.kvantorium_rasp.presenter.teacher.TeacherFragment"
+        android:name="com.misha_cherdak.kvantorium_rasp.presenter.teacher.TeachersFragment"
         android:label="Преподаватели"
         tools:layout="@layout/fragment_prep">
         <action
             android:id="@+id/action_prepFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_prepFragment_to_scheduleFragment"
+            app:destination="@id/scheduleFragment" />
     </fragment>
     <fragment
         android:id="@+id/autorizeFragment"

@@ -2,14 +2,9 @@ package com.misha_cherdak.kvantorium_rasp.data.database.entity.relations
 
 import androidx.room.Embedded
 import androidx.room.Relation
-import com.misha_cherdak.kvantorium_rasp.data.database.entity.Audit
-import com.misha_cherdak.kvantorium_rasp.data.database.entity.Day
-import com.misha_cherdak.kvantorium_rasp.data.database.entity.Predmet
-import com.misha_cherdak.kvantorium_rasp.data.database.entity.Prep
-import com.misha_cherdak.kvantorium_rasp.data.database.entity.Rasp
+import com.misha_cherdak.kvantorium_rasp.data.database.entity.*
 
 data class FullScheduleInfo (
-
     @Embedded val rasp: Rasp,
 
     @Relation(
@@ -34,5 +29,12 @@ data class FullScheduleInfo (
         parentColumn = "id_forgein_day",
         entityColumn = "id_day"
     )
-    val day: Day
+    val day: Day,
+
+    @Relation(
+        entity = GroupSchedule::class,
+        parentColumn = "id_rasp",
+        entityColumn = "id_forgein_rasp"
+    )
+    val groups: List<GroupInfo>
 )
