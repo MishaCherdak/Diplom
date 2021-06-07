@@ -26,10 +26,6 @@ class HomeFragment : Fragment() {
         btnShowTeacherSchedule.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_prepFragment)
         }
-
-        btnAdmin.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_autorizeFragment)
-        }
     }
 
 }

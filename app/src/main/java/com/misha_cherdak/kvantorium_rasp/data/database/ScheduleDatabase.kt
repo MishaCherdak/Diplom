@@ -4,13 +4,11 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.misha_cherdak.kvantorium_rasp.data.database.entity.Rasp
 import com.misha_cherdak.kvantorium_rasp.data.database.dao.ScheduleDao
 import com.misha_cherdak.kvantorium_rasp.data.database.entity.*
 
 @Database(
     entities = [
-        Admin::class,
         Audit::class,
         Day::class,
         Group::class,
