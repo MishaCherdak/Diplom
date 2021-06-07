@@ -17,5 +17,4 @@ fun groupsAdapterItemDelegate(
             binding.tvGroupName.text = item.name_gryp
         }
     }
-
 )

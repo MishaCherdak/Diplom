@@ -9,7 +9,7 @@
         android:id="@+id/homeFragment"
         android:name="com.misha_cherdak.kvantorium_rasp.presenter.home.HomeFragment"
         android:label="Главная"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_stud_group_Fragment"
             app:destination="@id/stud_group_Fragment" />
@@ -24,16 +24,19 @@
         android:id="@+id/stud_group_Fragment"
         android:name="com.misha_cherdak.kvantorium_rasp.presenter.groups.GroupsFragment"
         android:label="Группы учеников"
-        tools:layout="@layout/fragment_stud_group_" >
+        tools:layout="@layout/fragment_stud_group_">
         <action
             android:id="@+id/action_stud_group_Fragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_stud_group_Fragment_to_scheduleFragment"
+            app:destination="@id/scheduleFragment" />
     </fragment>
     <fragment
         android:id="@+id/prepFragment"
         android:name="com.misha_cherdak.kvantorium_rasp.presenter.teacher.TeacherFragment"
         android:label="Преподаватели"
-        tools:layout="@layout/fragment_prep" >
+        tools:layout="@layout/fragment_prep">
         <action
             android:id="@+id/action_prepFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
@@ -42,7 +45,7 @@
         android:id="@+id/autorizeFragment"
         android:name="com.misha_cherdak.kvantorium_rasp.presenter.auth.AuthorizationFragment"
         android:label="Авторизация"
-        tools:layout="@layout/fragment_autorize" >
+        tools:layout="@layout/fragment_autorize">
         <action
             android:id="@+id/action_autorizeFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
@@ -54,9 +57,14 @@
         android:id="@+id/admin_groupFragment"
         android:name="com.misha_cherdak.kvantorium_rasp.presenter.admin.AdminGroupFragment"
         android:label="Группы студентов (админ)"
-        tools:layout="@layout/fragment_admin_group" >
+        tools:layout="@layout/fragment_admin_group">
         <action
             android:id="@+id/action_admin_groupFragment_to_autorizeFragment"
             app:destination="@id/autorizeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/scheduleFragment"
+        android:name="com.misha_cherdak.kvantorium_rasp.presenter.schedule.ScheduleFragment"
+        android:label="Расписание"
+        tools:layout="@layout/fragment_schedule" />
 </navigation>

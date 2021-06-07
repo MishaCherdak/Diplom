@@ -6,7 +6,7 @@ import com.misha_cherdak.kvantorium_rasp.data.database.entity.Audit
 import com.misha_cherdak.kvantorium_rasp.data.database.entity.Day
 import com.misha_cherdak.kvantorium_rasp.data.database.entity.Predmet
 import com.misha_cherdak.kvantorium_rasp.data.database.entity.Prep
-import com.misha_cherdak.kvantorium_rasp.data.Rasp
+import com.misha_cherdak.kvantorium_rasp.data.database.entity.Rasp
 
 data class FullScheduleInfo (
 

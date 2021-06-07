@@ -4,12 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
-import com.misha_cherdak.kvantorium_rasp.data.database.entity.Group
+import com.misha_cherdak.kvantorium_rasp.R
 import com.misha_cherdak.kvantorium_rasp.databinding.FragmentStudGroupBinding
 import com.misha_cherdak.kvantorium_rasp.presenter.groups.items.groupsAdapterItemDelegate
+import com.misha_cherdak.kvantorium_rasp.presenter.schedule.ARG_VIEW_TYPE
+import com.misha_cherdak.kvantorium_rasp.presenter.schedule.ScheduleViewType
 
 class GroupsFragment : Fragment() {
 
@@ -20,7 +24,7 @@ class GroupsFragment : Fragment() {
 
     // Объявляем адаптер для списка групп
     private val groupAdapter = ListDelegationAdapter(
-        groupsAdapterItemDelegate { onGroupClick(it) }
+        groupsAdapterItemDelegate { viewModel.onGroupClick(it) }
     )
 
     override fun onCreateView(
@@ -41,10 +45,16 @@ class GroupsFragment : Fragment() {
             groupAdapter.items = it
             groupAdapter.notifyDataSetChanged()
         }
+        viewModel.eventOpenGroupSchedule.observe(viewLifecycleOwner) {
+            openGroupSchedule(it)
+        }
     }
 
-    private fun onGroupClick(group: Group) {
-
+    private fun openGroupSchedule(groupId: Int) {
+        findNavController().navigate(
+            resId = R.id.action_stud_group_Fragment_to_scheduleFragment,
+            args = bundleOf(ARG_VIEW_TYPE to ScheduleViewType.ByGroup(groupId))
+        )
     }
 
 }

@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.misha_cherdak.kvantorium_rasp.data.Rasp
+import com.misha_cherdak.kvantorium_rasp.data.database.entity.Rasp
 import com.misha_cherdak.kvantorium_rasp.data.database.dao.ScheduleDao
 import com.misha_cherdak.kvantorium_rasp.data.database.entity.*
 
