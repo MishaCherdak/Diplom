@@ -51,7 +51,7 @@ class ScheduleViewModel(
         viewModelScope.launch {
             fullSchedule = withContext(Dispatchers.IO) {
                 val data = when (viewType) {
-                    All -> emptyList()
+                    All -> scheduleDao.getAllSchedules()
                     is ByGroup -> scheduleDao.getSchedulesByGroup(viewType.groupId)
                     is ByTeacher -> scheduleDao.getScheduleByTeacher(viewType.teacherId)
                 }

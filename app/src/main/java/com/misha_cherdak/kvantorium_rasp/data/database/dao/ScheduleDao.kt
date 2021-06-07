@@ -12,7 +12,7 @@ interface ScheduleDao {
 
     @Transaction
     @Query("SELECT * FROM rasp ORDER BY id_rasp ASC")
-    suspend fun readAllSchedules(): List<FullScheduleInfo>
+    suspend fun getAllSchedules(): List<FullScheduleInfo>
 
     @Transaction
     @Query(
