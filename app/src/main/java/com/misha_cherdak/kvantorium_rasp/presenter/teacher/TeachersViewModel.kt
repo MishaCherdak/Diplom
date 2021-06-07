@@ -17,6 +17,7 @@ class TeachersViewModel(
 ) : AndroidViewModel(application) {
 
     private val teachersDao by lazy { ScheduleDatabase.gatDatabase(application).scheduleDao() }
+    private var teachersData = emptyList<Prep>()
 
     private val _teachers = MutableLiveData<List<Prep>>()
     val teachers: LiveData<List<Prep>> get() = _teachers
@@ -26,13 +27,21 @@ class TeachersViewModel(
 
     init {
         viewModelScope.launch {
-            val data = withContext(Dispatchers.IO) { teachersDao.getAllTeachers() }
-            _teachers.value = data
+            // Загрузка данных
+            teachersData = withContext(Dispatchers.IO) { teachersDao.getAllTeachers() }
+            _teachers.value = teachersData
         }
     }
 
     fun onTeacherClick(teacher: Prep) {
         _eventOpenTeacherSchedule.postValue(teacher.id_prep)
+    }
+
+    // Поиск
+    fun onQueryTextChange(newText: String?) {
+        _teachers.value = teachersData.filter {
+            it.surname_prep.contains(newText.orEmpty(), ignoreCase = true)
+        }
     }
 
 }
